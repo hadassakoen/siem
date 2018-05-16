@@ -27,7 +27,7 @@ def InsertToDB(add,cnx, cursor):
             dic[ip]+=1
         else:
             dic[ip]=1
-        print dic
+        
 
     cnx.commit()
     cursor.close()
