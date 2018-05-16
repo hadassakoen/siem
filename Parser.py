@@ -1,12 +1,10 @@
 import mysql.connector
 from mysql.connector import errorcode
-#
 
 user = 'root'
 password = 'P@ssw0rd'
-host = '192.168.100.144'
+host = '192.168.60.135'
 database = 'siem'
-
 
 #1
 def log(line):
@@ -28,19 +26,12 @@ def PortToProtocol(num):
     else:
         return 'UNKOWN'
 
-
-
-
 #3
 def all(text):
     dic=log(text)
     proto= PortToProtocol(dic['PORT'])
     dic['PROTOCOL']=proto
     return dic
-
-
-
-
 
 
 def ConnectToDB():
@@ -57,8 +48,6 @@ def ConnectToDB():
             print(err)
         return None
 
-
-
 def InsertToDB(log, cnx, cursor):
 
     add_log = ("""INSERT INTO fwlogs (ID, date, SRC_IP, DST_IP, PORT, PROTOCOL, ACTION) VALUES (NULL, %(DATE)s, %(SRC_IP)s, %(DST_IP)s, %(PORT)s, %(PROTOCOL)s, %(ACTION)s)""")
@@ -67,9 +56,6 @@ def InsertToDB(log, cnx, cursor):
 
     cursor.close()
     cnx.close()
-
-
-
 
 def main():
     opened_file = open(r'C:\Users\Owner\PycharmProjects\untitled\raz\Ping_Sweep.txt', 'r')
@@ -80,8 +66,6 @@ def main():
         InsertToDB(dic , cnx, cursor)
 
 main()
-
-
 
 
 
