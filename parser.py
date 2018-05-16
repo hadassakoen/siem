@@ -1,6 +1,6 @@
 import mysql.connector
 from mysql.connector import errorcode
-
+#
 
 user = 'root'
 password = 'P@ssw0rd'
