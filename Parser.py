@@ -3,7 +3,7 @@ from mysql.connector import errorcode
 
 user = 'root'
 password = 'P@ssw0rd'
-host = '192.168.60.135'
+host = '192.168.252.218'
 database = 'siem'
 
 #1
