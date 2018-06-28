@@ -2,6 +2,7 @@ import datetime
 import mysql.connector
 from mysql.connector import errorcode
 
+
 user = 'root'
 password = 'P@ssw0rd'
 host = '192.168.252.218'
@@ -87,13 +88,17 @@ def main2():
             DST_IP=[]
             for i in InsertToDB(c, cnx, cursor):
                 if i[0]==d:
+
                     DST_IP.append(i[1])
             if set(DST_IP)>10:
                 print d
 
     u = """select date from fwlogs  ;"""
-    print InsertToDB(u, cnx, cursor)
-    #GetTimeDiffreneces(InsertToDB(u, cnx, cursor) [0],InsertToDB(u, cnx, cursor) [1])
+    t=InsertToDB(u, cnx, cursor)[0] [0]
+    print t
+    y=InsertToDB(u, cnx, cursor)[4] [0]
+    print y
+    print GetTimeDiffreneces(t,y) [1]
 
 
     cnx.commit()
